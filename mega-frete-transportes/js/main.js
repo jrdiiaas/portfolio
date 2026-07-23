@@ -1,132 +1,123 @@
 /* ==========================================================================
-   MEGA FRETE TRANSPORTES - JAVASCRIPT INTERACTION & CALCULATOR LOGIC
-   Official WhatsApp: (85) 9 9987-0060
+   MEGA FRETE TRANSPORTES - JAVASCRIPT & SCROLL ANIMATION MASCOT
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Header Scroll Effect
-  const header = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  // 1. Mobile Menu Toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('nav-menu');
 
-  // 2. Interactive Quote Calculator
-  const calcForm = document.getElementById('freight-calc-form');
-  const priceRangeElem = document.getElementById('price-estimate-range');
-  const btnSendWhatsapp = document.getElementById('btn-send-whatsapp');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.className = 'fa-solid fa-xmark';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+      }
+    });
 
-  function calculateEstimate() {
-    if (!calcForm) return;
-
-    const serviceType = document.querySelector('input[name="service_type"]:checked')?.value || 'mudanca';
-    const volumeSize = document.getElementById('calc-volume')?.value || 'medio';
-    const helpersCount = parseInt(document.getElementById('calc-helpers')?.value || '2', 10);
-    
-    // Additional options
-    const packing = document.getElementById('chk-packing')?.checked;
-    const assembly = document.getElementById('chk-assembly')?.checked;
-    const stairs = document.getElementById('chk-stairs')?.checked;
-
-    let baseMin = 150;
-    let baseMax = 300;
-
-    // Service base factors
-    if (serviceType === 'mudanca') {
-      baseMin = 350; baseMax = 650;
-    } else if (serviceType === 'frete') {
-      baseMin = 180; baseMax = 350;
-    } else if (serviceType === 'empresa') {
-      baseMin = 500; baseMax = 1200;
-    } else if (serviceType === 'icamento') {
-      baseMin = 400; baseMax = 800;
-    }
-
-    // Volume multiplier
-    if (volumeSize === 'pequeno') {
-      baseMin *= 0.8; baseMax *= 0.85;
-    } else if (volumeSize === 'grande') {
-      baseMin *= 1.5; baseMax *= 1.6;
-    } else if (volumeSize === 'completo') {
-      baseMin *= 2.2; baseMax *= 2.4;
-    }
-
-    // Helpers factor
-    baseMin += helpersCount * 60;
-    baseMax += helpersCount * 90;
-
-    // Extras
-    if (packing) { baseMin += 100; baseMax += 180; }
-    if (assembly) { baseMin += 80; baseMax += 140; }
-    if (stairs) { baseMin += 70; baseMax += 120; }
-
-    const formattedMin = Math.round(baseMin);
-    const formattedMax = Math.round(baseMax);
-
-    if (priceRangeElem) {
-      priceRangeElem.textContent = `R$ ${formattedMin} - R$ ${formattedMax}`;
-    }
-  }
-
-  // Bind change listeners to form inputs
-  if (calcForm) {
-    calcForm.addEventListener('input', calculateEstimate);
-    calcForm.addEventListener('change', calculateEstimate);
-    calculateEstimate(); // Run initial calculation
-  }
-
-  // 3. WhatsApp Submission Handler (Official Number: 5585999870060)
-  if (btnSendWhatsapp) {
-    btnSendWhatsapp.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const origin = document.getElementById('calc-origin')?.value || 'Não informado';
-      const destination = document.getElementById('calc-destination')?.value || 'Não informado';
-      const serviceTypeInput = document.querySelector('input[name="service_type"]:checked');
-      const serviceText = serviceTypeInput ? serviceTypeInput.parentElement.innerText.trim() : 'Mudança / Frete';
-      const volumeSize = document.getElementById('calc-volume')?.selectedOptions[0]?.text || 'Médio';
-      const helpersCount = document.getElementById('calc-helpers')?.value || '2';
-      
-      const extras = [];
-      if (document.getElementById('chk-packing')?.checked) extras.push('Embalagem de Proteção');
-      if (document.getElementById('chk-assembly')?.checked) extras.push('Montagem/Desmontagem');
-      if (document.getElementById('chk-stairs')?.checked) extras.push('Acesso por Escada');
-
-      const extrasText = extras.length > 0 ? extras.join(', ') : 'Nenhum adicional';
-      const estimatedPrice = priceRangeElem ? priceRangeElem.textContent : 'Consulte';
-
-      const whatsappMessage = `🚚 *SOLICITAÇÃO DE ORÇAMENTO - MEGA FRETE* 🚚\n\n` +
-        `• *Serviço:* ${serviceText}\n` +
-        `• *Origem:* ${origin}\n` +
-        `• *Destino:* ${destination}\n` +
-        `• *Tamanho da Carga:* ${volumeSize}\n` +
-        `• *Ajudantes:* ${helpersCount} pessoas\n` +
-        `• *Adicionais:* ${extrasText}\n` +
-        `• *Estimativa:* ${estimatedPrice}\n\n` +
-        `Gostaria de confirmar a disponibilidade e fechar este orçamento!`;
-
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=5585999870060&text=${encodedMessage}`;
-      
-      window.open(whatsappUrl, '_blank');
+    // Close menu when clicking nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        if (mobileToggle.querySelector('i')) {
+          mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+        }
+      });
     });
   }
 
-  // 4. FAQ Accordion Toggle
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const btn = item.querySelector('.faq-question');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
+  // 2. Header Scroll Shadow & Active Link Highlight
+  const header = document.querySelector('.header');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
     }
+
+    // Active Section Highlight
+    let currentScroll = window.scrollY + 120;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      const link = document.querySelector(`.nav-menu a[href*="${sectionId}"]`);
+
+      if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link?.classList.add('active');
+      }
+    });
   });
+
+  // 3. Floating Animated 3D Mascot Scroll Tracker
+  const floatingWidget = document.getElementById('floating-mascot-widget');
+  const mascotImg = document.getElementById('floating-mascot-img');
+  const mascotSpeech = document.getElementById('mascot-speech');
+
+  let lastScrollY = window.scrollY;
+  let bubbleTimeout;
+
+  const messagesBySection = {
+    'inicio': 'Olá! Sua entrega em boas mãos! 🚚',
+    'atendimento': 'Fale direto no WhatsApp do setor desejado! 💬',
+    'missao-visao': '15 anos de agilidade, segurança e qualidade! 🏆',
+    'frota': 'Frota própria com rastreamento 24h! 🚛',
+    'contato': 'Visite nossa sede no Parque Albano, Caucaia! 📍'
+  };
+
+  function updateMascotOnScroll() {
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
+
+    // Slight tilt rotation based on scroll direction
+    if (mascotImg) {
+      const tilt = Math.max(-12, Math.min(12, scrollDelta * 0.8));
+      mascotImg.style.transform = `translateY(-4px) rotate(${tilt}deg)`;
+      
+      clearTimeout(mascotImg.tiltTimeout);
+      mascotImg.tiltTimeout = setTimeout(() => {
+        mascotImg.style.transform = 'translateY(0) rotate(0deg)';
+      }, 200);
+    }
+
+    // Determine current section message
+    let activeMessage = 'Sua entrega é a nossa missão! 📦';
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.2) {
+        const id = section.getAttribute('id');
+        if (messagesBySection[id]) {
+          activeMessage = messagesBySection[id];
+        }
+      }
+    });
+
+    if (mascotSpeech) {
+      mascotSpeech.textContent = activeMessage;
+      mascotSpeech.classList.add('show');
+
+      clearTimeout(bubbleTimeout);
+      bubbleTimeout = setTimeout(() => {
+        mascotSpeech.classList.remove('show');
+      }, 3000);
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  window.addEventListener('scroll', updateMascotOnScroll, { passive: true });
+
+  // Initial trigger for mascot
+  setTimeout(() => {
+    if (mascotSpeech) {
+      mascotSpeech.classList.add('show');
+      setTimeout(() => mascotSpeech.classList.remove('show'), 3500);
+    }
+  }, 1000);
 });

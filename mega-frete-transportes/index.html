@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>MEGA FRETE TRANSPORTES | 15 Anos - Caucaia & Brasil</title>
   
   <!-- SEO Meta Tags -->
@@ -10,12 +10,12 @@
   <meta name="keywords" content="Mega Frete, Mega Transporte, Caucaia, Parque Albano, telecoletas, frete rápido, faturamento, notas fiscais">
   <meta property="og:title" content="MEGA FRETE TRANSPORTES | 15 Anos de Tradição e Confiança">
   <meta property="og:description" content="Do ponto A ao ponto B com eficiência e o cuidado que você merece! Fale direto com nossos departamentos no WhatsApp.">
-  <meta property="og:image" content="assets/truck-red.jpg">
+  <meta property="og:image" content="assets/logo.png">
 
   <!-- Favicon -->
-  <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+  <link rel="icon" href="assets/logo.png" type="image/png">
 
-  <!-- FontAwesome Icons -->
+  <!-- FontAwesome Icons & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Custom Stylesheet -->
@@ -27,16 +27,22 @@
   <header class="header">
     <div class="container nav-container">
       <a href="#" class="logo-wrapper">
-        <img src="assets/logo.jpg" alt="Logo Mega Transporte" class="logo-img">
+        <img src="assets/logo.png" alt="Logo Mega Frete Transportes" class="logo-img">
+        <span class="logo-text">MEGA FRETE <small>TRANSPORTES</small></span>
       </a>
 
-      <nav>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu-wrapper" id="nav-menu">
         <ul class="nav-menu">
-          <li><a href="#inicio" class="nav-link">Início</a></li>
-          <li><a href="#atendimento" class="nav-link">Canais de Atendimento</a></li>
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#atendimento" class="nav-link">Atendimento</a></li>
           <li><a href="#missao-visao" class="nav-link">Missão & Visão</a></li>
-          <li><a href="#frota" class="nav-link">Nossa Frota</a></li>
-          <li><a href="#contato" class="nav-link">Endereço & Localização</a></li>
+          <li><a href="#frota" class="nav-link">Frota</a></li>
+          <li><a href="#contato" class="nav-link">Endereço</a></li>
         </ul>
       </nav>
 
@@ -57,7 +63,7 @@
           
           <!-- Selo 15 Anos -->
           <div class="anniversary-badge">
-            <i class="fa-solid fa-cake-candles"></i> 15 ANOS DE MEGA FRETE TRANSPORTES!
+            <i class="fa-solid fa-trophy"></i> 15 ANOS DE MEGA FRETE TRANSPORTES!
           </div>
 
           <h1>FRETE RÁPIDO E <span>CONFIÁVEL</span></h1>
@@ -82,7 +88,7 @@
             </div>
           </div>
 
-          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div class="hero-cta-buttons">
             <a href="#atendimento" class="btn btn-primary-red">
               <i class="fa-solid fa-comments"></i> Falar com um Setor
             </a>
@@ -92,9 +98,9 @@
           </div>
         </div>
 
-        <!-- Mascote Oficial 3D Animado (Sem Caixa de Fundo) -->
+        <!-- Mascote Oficial 3D Transparente (Sem Fundo) -->
         <div class="mascot-3d-wrapper">
-          <img src="assets/mascot.jpg" alt="Mascote 3D Mega Frete Transportes" class="mascot-3d-img">
+          <img src="assets/mascot_3d_transparent.png" alt="Mascote 3D Mega Frete Transportes" class="mascot-3d-img">
           <div class="mascot-3d-shadow"></div>
           <div class="mascot-badge-pill">
             <i class="fa-solid fa-award" style="color: var(--brand-yellow);"></i> 15 Anos de Excelência
@@ -104,7 +110,7 @@
     </div>
   </section>
 
-  <!-- CANAIS DE ATENDIMENTO POR DEPARTAMENTO (Substitui a Calculadora) -->
+  <!-- CANAIS DE ATENDIMENTO POR DEPARTAMENTO -->
   <section id="atendimento" class="dept-section section-padding">
     <div class="container">
       <div style="text-align: center; max-width: 750px; margin: 0 auto;">
@@ -171,7 +177,7 @@
     </div>
   </section>
 
-  <!-- SEÇÃO MISSÃO & VISÃO (Criativos Oficiais) -->
+  <!-- SEÇÃO MISSÃO & VISÃO -->
   <section id="missao-visao" class="mv-section section-padding">
     <div class="container">
       <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
@@ -228,7 +234,7 @@
     </div>
   </section>
 
-  <!-- FROTA COM CORREÇÃO DA LOGO -->
+  <!-- FROTA COM IDENTIDADE OFICIAL -->
   <section id="frota" class="section-padding" style="background: var(--bg-light);">
     <div class="container">
       <div class="truck-showcase-card">
@@ -238,7 +244,7 @@
           </div>
           <h3>COMPROMISSO COM PRAZOS E QUALIDADE EM CADA QUILÔMETRO</h3>
           <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">
-            Nossa frota com a identidade oficial <strong>MEGA TRANSPORTE</strong> conta com rastreamento 24h, garantindo total segurança do envio ao destino final.
+            Nossa frota com a identidade oficial <strong>MEGA FRETE TRANSPORTES</strong> conta com rastreamento 24h, garantindo total segurança do envio ao destino final.
           </p>
 
           <a href="https://w.app/uv5pub" target="_blank" class="btn btn-primary-red">
@@ -246,13 +252,13 @@
           </a>
         </div>
         <div class="truck-showcase-img">
-          <img src="assets/truck-red.jpg" alt="Caminhão Oficial Mega Transporte com Logo de Estrada">
+          <img src="assets/truck-red.jpg" alt="Caminhão Oficial Mega Frete Transportes">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO ENDEREÇO & MAPA OFICIAL (Parque Albano, Caucaia - CE) -->
+  <!-- SEÇÃO ENDEREÇO & MAPA OFICIAL -->
   <section id="contato" class="section-padding">
     <div class="container">
       <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
@@ -306,7 +312,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="assets/logo.jpg" alt="Logo Mega Transporte" style="height: 54px; margin-bottom: 16px; border-radius: var(--radius-sm);">
+          <img src="assets/logo.png" alt="Logo Mega Frete Transportes" style="height: 58px; margin-bottom: 16px; border-radius: var(--radius-sm);">
           <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem;">
             15 Anos de Mega Frete Transportes! Transportando mercadorias com eficiência, agilidade e segurança em Caucaia, Ceará e todo o Brasil.
           </p>
@@ -350,13 +356,23 @@
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP FAB (Telecoletas Direto) -->
+  <!-- FLOATING ANIMATED 3D MASCOT SCROLL TRACKER -->
+  <div id="floating-mascot-widget" class="floating-mascot-widget">
+    <div class="mascot-speech-bubble" id="mascot-speech">
+      Sua entrega em boas mãos! 🚚
+    </div>
+    <a href="https://w.app/uv5pub" target="_blank" class="mascot-avatar-link" title="Falar no WhatsApp Telecoletas">
+      <img src="assets/mascot_3d_transparent.png" alt="Mascote 3D Mega Frete" class="floating-mascot-img" id="floating-mascot-img">
+    </a>
+  </div>
+
+  <!-- FLOATING WHATSAPP FAB -->
   <a href="https://w.app/uv5pub" target="_blank" class="whatsapp-fab" aria-label="Falar no WhatsApp Telecoletas">
     <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i>
     <span>Telecoletas WhatsApp</span>
   </a>
 
-  <!-- JavaScript Script -->
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>
