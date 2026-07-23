@@ -1,6 +1,6 @@
 /* ==========================================================================
    THAYLAN C ANDRADE - AUDIOVISUAL & PHOTOGRAPHY LANDING PAGE
-   Design System: Dark Luxury Cinema & Gold Accents
+   Design System: Dark Luxury Cinema & Gold Accents (Mobile-First Optimized)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -50,6 +50,7 @@ html {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -57,6 +58,8 @@ body {
   background-image: 
     radial-gradient(at 15% 15%, rgba(234, 179, 8, 0.08) 0px, transparent 45%),
     radial-gradient(at 85% 75%, rgba(234, 179, 8, 0.06) 0px, transparent 45%);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1, h2, h3, h4, .brand-text {
@@ -89,11 +92,17 @@ h1, h2, h3, h4, .brand-text {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(9, 9, 11, 0.85);
+  background: rgba(9, 9, 11, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
+  padding: 0.85rem 0;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  border-bottom-color: var(--border-gold);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -119,17 +128,27 @@ h1, h2, h3, h4, .brand-text {
 }
 
 .brand-text {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text-main);
   line-height: 1.1;
 }
 
 .brand-text small {
   display: block;
-  font-size: 0.725rem;
+  font-size: 0.7rem;
   color: var(--gold-primary);
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  cursor: pointer;
+  padding: 6px 10px;
 }
 
 .nav-menu {
@@ -263,6 +282,7 @@ h1, h2, h3, h4, .brand-text {
   height: 480px;
   object-fit: cover;
   transition: transform 0.5s ease;
+  display: block;
 }
 
 .hero-media-wrapper:hover img {
@@ -273,6 +293,7 @@ h1, h2, h3, h4, .brand-text {
   position: absolute;
   bottom: 20px;
   left: 20px;
+  right: 20px;
   background: rgba(9, 9, 11, 0.85);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-gold);
@@ -378,7 +399,7 @@ h1, h2, h3, h4, .brand-text {
 /* Portfolio Gallery & Video Player */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
 }
 
@@ -507,27 +528,184 @@ h1, h2, h3, h4, .brand-text {
   transform: translateY(-2px);
 }
 
-/* Responsive */
+/* Floating WhatsApp Mobile FAB */
+.whatsapp-fab-mobile {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  align-items: center;
+  gap: 10px;
+  background: var(--wa-green);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 2px solid #FFFFFF;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
 @media (max-width: 992px) {
   .hero-grid, .banlek-banner, .about-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
   .hero-title {
     font-size: 2.8rem;
   }
+  .banlek-banner {
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(9, 9, 11, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid var(--border-gold);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    padding: 20px 24px;
+  }
+
+  .nav-menu-wrapper.active {
+    display: block;
+  }
+
   .nav-menu {
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .nav-cta-desktop {
     display: none;
   }
+
   .hero {
-    padding: 110px 0 60px;
+    padding: 100px 0 50px;
+    text-align: center;
   }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .badge-tag {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-media-wrapper img {
+    height: 340px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 24px 18px;
+  }
+
+  .banlek-banner {
+    padding: 28px 18px;
+  }
+
+  .banlek-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-item {
+    height: 280px;
+  }
+
+  .drone-video-player {
+    max-height: 280px !important;
+  }
+
+  .about-grid {
+    text-align: center;
+  }
+
+  .skills-tags {
+    justify-content: center;
+  }
+
+  .about-img {
+    max-height: 380px;
+    object-fit: cover;
+  }
+
+  .whatsapp-fab-mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+  .brand-text {
+    font-size: 1.05rem;
+  }
+  .hero-media-wrapper img {
+    height: 280px;
+  }
+  .whatsapp-fab-mobile span {
+    display: none;
+  }
+  .whatsapp-fab-mobile {
+    padding: 14px;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
   }
 }

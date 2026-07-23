@@ -38,18 +38,27 @@
         </div>
       </a>
 
-      <ul class="nav-menu">
-        <li><a href="#servicos" class="nav-link">Serviços</a></li>
-        <li><a href="#drone-showcase" class="nav-link">Imagens Aéreas</a></li>
-        <li><a href="#banlek" class="nav-link">Galeria Banlek</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
-        <li><a href="#sobre" class="nav-link">Sobre</a></li>
-        <li><a href="#contato" class="nav-link">Contato</a></li>
-      </ul>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-      <a href="https://api.whatsapp.com/send?phone=5585999999999&text=Ol%C3%A1%20Thaylan!%20Vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20audiovisual." target="_blank" class="btn btn-whatsapp">
-        <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
-      </a>
+      <nav class="nav-menu-wrapper" id="nav-menu">
+        <ul class="nav-menu">
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#drone-showcase" class="nav-link">Imagens Aéreas</a></li>
+          <li><a href="#banlek" class="nav-link">Galeria Banlek</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-desktop">
+        <a href="https://api.whatsapp.com/send?phone=5585999999999&text=Ol%C3%A1%20Thaylan!%20Vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20audiovisual." target="_blank" class="btn btn-whatsapp" style="font-size: 0.9rem; padding: 10px 20px;">
+          <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+        </a>
+      </div>
     </div>
   </header>
 
@@ -166,7 +175,7 @@
 
       <!-- PLAYER DE VÍDEO HTML5 -->
       <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-gold); box-shadow: var(--shadow-lg), var(--shadow-glow);">
-        <span class="video-badge" style="top: 20px; right: 20px;">
+        <span class="video-badge" style="top: 16px; right: 16px;">
           <i class="fa-solid fa-circle-play"></i> Vídeo Drone 4K
         </span>
         <video autoplay loop muted playsinline controls class="drone-video-player" style="width: 100%; max-height: 520px; object-fit: cover; display: block;">
@@ -200,7 +209,7 @@
       </div>
 
       <div style="text-align: center;">
-        <img src="assets/profile.jpg" alt="Banlek Thaylan Andrade" style="width: 180px; height: 180px; border-radius: 50%; border: 4px solid var(--gold-primary); box-shadow: var(--shadow-glow); object-fit: cover;">
+        <img src="assets/profile.jpg" alt="Banlek Thaylan Andrade" style="width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--gold-primary); box-shadow: var(--shadow-glow); object-fit: cover;">
         <p style="margin-top: 12px; color: var(--gold-light); font-weight: 700;">@euthaylandeandrade</p>
       </div>
     </div>
@@ -299,5 +308,13 @@
     </div>
   </footer>
 
+  <!-- FLOATING WHATSAPP FAB FOR MOBILE -->
+  <a href="https://api.whatsapp.com/send?phone=5585999999999&text=Ol%C3%A1%20Thaylan!%20Vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="whatsapp-fab-mobile" aria-label="Orçamento no WhatsApp">
+    <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i>
+    <span>Orçamento WhatsApp</span>
+  </a>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
 </body>
 </html>
