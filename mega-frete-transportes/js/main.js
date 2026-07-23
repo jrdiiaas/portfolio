@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MEGA FRETE TRANSPORTES - JAVASCRIPT & SCROLL ANIMATION MASCOT
+   MEGA FRETE TRANSPORTES - JAVASCRIPT & FUTURISTIC 3D SCROLL ANIMATION
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -55,69 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Floating Animated 3D Mascot Scroll Tracker
-  const floatingWidget = document.getElementById('floating-mascot-widget');
-  const mascotImg = document.getElementById('floating-mascot-img');
-  const mascotSpeech = document.getElementById('mascot-speech');
+  // 3. Futuristic 3D Parallax Perspective Scroll Animation on Mascot
+  const mascotImg = document.getElementById('hero-mascot-img');
+  const mascotContainer = document.getElementById('hero-mascot-container');
 
-  let lastScrollY = window.scrollY;
-  let bubbleTimeout;
+  if (mascotImg && mascotContainer) {
+    window.addEventListener('scroll', () => {
+      const rect = mascotContainer.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
 
-  const messagesBySection = {
-    'inicio': 'Olá! Sua entrega em boas mãos! 🚚',
-    'atendimento': 'Fale direto no WhatsApp do setor desejado! 💬',
-    'missao-visao': '15 anos de agilidade, segurança e qualidade! 🏆',
-    'frota': 'Frota própria com rastreamento 24h! 🚛',
-    'contato': 'Visite nossa sede no Parque Albano, Caucaia! 📍'
-  };
+      // Only calculate when element is in viewport
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        // Calculate scroll progress ratio (0 to 1)
+        const scrollPercent = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+        
+        // Futuristic 3D perspective rotation math
+        const rotateX = (scrollPercent - 0.5) * 30; // Smooth forward/backward tilt
+        const rotateY = (scrollPercent - 0.5) * -20; // Subtle side 3D turn
+        const translateY = (scrollPercent - 0.5) * -35; // Parallax depth float
+        const scale = 0.96 + (Math.sin(scrollPercent * Math.PI) * 0.08); // Subtle depth pulse
 
-  function updateMascotOnScroll() {
-    const currentScrollY = window.scrollY;
-    const scrollDelta = currentScrollY - lastScrollY;
-
-    // Slight tilt rotation based on scroll direction
-    if (mascotImg) {
-      const tilt = Math.max(-12, Math.min(12, scrollDelta * 0.8));
-      mascotImg.style.transform = `translateY(-4px) rotate(${tilt}deg)`;
-      
-      clearTimeout(mascotImg.tiltTimeout);
-      mascotImg.tiltTimeout = setTimeout(() => {
-        mascotImg.style.transform = 'translateY(0) rotate(0deg)';
-      }, 200);
-    }
-
-    // Determine current section message
-    let activeMessage = 'Sua entrega é a nossa missão! 📦';
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.2) {
-        const id = section.getAttribute('id');
-        if (messagesBySection[id]) {
-          activeMessage = messagesBySection[id];
-        }
+        mascotImg.style.transform = `translate3d(0, ${translateY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
       }
-    });
-
-    if (mascotSpeech) {
-      mascotSpeech.textContent = activeMessage;
-      mascotSpeech.classList.add('show');
-
-      clearTimeout(bubbleTimeout);
-      bubbleTimeout = setTimeout(() => {
-        mascotSpeech.classList.remove('show');
-      }, 3000);
-    }
-
-    lastScrollY = currentScrollY;
+    }, { passive: true });
   }
-
-  window.addEventListener('scroll', updateMascotOnScroll, { passive: true });
-
-  // Initial trigger for mascot
-  setTimeout(() => {
-    if (mascotSpeech) {
-      mascotSpeech.classList.add('show');
-      setTimeout(() => mascotSpeech.classList.remove('show'), 3500);
-    }
-  }, 1000);
 });
