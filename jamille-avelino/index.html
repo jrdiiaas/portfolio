@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Jamille Avelino | Branding Book & Media Kit Oficial 🎬 @vemcom_ajam</title>
   <meta name="description" content="Media Kit & Branding Book Oficial da influenciadora digital e produtora de conteúdo Jamille Avelino (@vemcom_ajam). Conecte sua marca a audiências engajadas através de storytelling cinematográfico.">
   
@@ -28,6 +28,7 @@
         </div>
       </a>
       
+      <!-- Desktop Links -->
       <ul class="nav-links">
         <li><a href="#sobre" class="nav-link">Sobre & Manifesto</a></li>
         <li><a href="#estetica" class="nav-link">Branding Book</a></li>
@@ -37,12 +38,38 @@
       </ul>
 
       <div class="nav-actions">
-        <button class="btn btn-secondary" onclick="generateMediaKitPDF()">
+        <button class="btn btn-secondary nav-pdf-btn" onclick="generateMediaKitPDF()">
           <i class="fa-solid fa-file-pdf"></i> Baixar Media Kit
         </button>
-        <button class="btn btn-primary" onclick="openBriefingModal()">
+        <button class="btn btn-primary nav-cta-btn" onclick="openBriefingModal()">
           <i class="fa-brands fa-whatsapp"></i> Fechar Parceria
         </button>
+        
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileNav()" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu-drawer" id="mobileMenuDrawer">
+      <div class="mobile-menu-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#sobre" onclick="closeMobileNav()"><i class="fa-solid fa-user-astronaut"></i> Sobre & Manifesto</a></li>
+          <li><a href="#estetica" onclick="closeMobileNav()"><i class="fa-solid fa-wand-magic-sparkles"></i> Branding Book</a></li>
+          <li><a href="#metricas" onclick="closeMobileNav()"><i class="fa-solid fa-chart-pie"></i> Métricas & Audiência</a></li>
+          <li><a href="#pilares" onclick="closeMobileNav()"><i class="fa-solid fa-clapperboard"></i> Pilares de Conteúdo</a></li>
+          <li><a href="#pacotes" onclick="closeMobileNav()"><i class="fa-solid fa-calculator"></i> Pacotes & Simulador</a></li>
+        </ul>
+        <div class="mobile-menu-buttons">
+          <button class="btn btn-secondary" style="width: 100%;" onclick="closeMobileNav(); generateMediaKitPDF();">
+            <i class="fa-solid fa-file-pdf"></i> Baixar Media Kit (PDF)
+          </button>
+          <button class="btn btn-primary" style="width: 100%;" onclick="closeMobileNav(); openBriefingModal();">
+            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+          </button>
+        </div>
       </div>
     </div>
   </nav>
@@ -72,16 +99,16 @@
 
         <div class="hero-stats-row">
           <div class="hero-stat-card">
-            <div class="hero-stat-number" data-count="485">0K+</div>
+            <div class="hero-stat-number" data-count="485">485K+</div>
             <div class="hero-stat-label">Alcance Total</div>
           </div>
           <div class="hero-stat-card">
             <div class="hero-stat-number">9.4%</div>
-            <div class="hero-stat-label">Taxa de Engajamento</div>
+            <div class="hero-stat-label">Taxa Engajamento</div>
           </div>
           <div class="hero-stat-card">
-            <div class="hero-stat-number" data-count="8">0.5M+</div>
-            <div class="hero-stat-label">Impressões Mensais</div>
+            <div class="hero-stat-number" data-count="8">8.5M+</div>
+            <div class="hero-stat-label">Impressões / Mês</div>
           </div>
         </div>
       </div>
@@ -127,7 +154,7 @@
         <div class="transform-card">
           <div class="transform-img-box">
             <span class="transform-badge"><i class="fa-solid fa-star"></i> Embaixadoria & Gala</span>
-            <img src="assets/gala.png" alt="Jamille Avelino Gala Event">
+            <img src="assets/gala.png" alt="Jamille Avelino Gala Event" onclick="openLightbox('assets/gala.png')">
           </div>
           <div class="transform-info">
             <h3>Presença VIP & Premiações</h3>
@@ -139,7 +166,7 @@
         <div class="transform-card">
           <div class="transform-img-box">
             <span class="transform-badge"><i class="fa-solid fa-utensils"></i> Gastronomia & Lifestyle</span>
-            <img src="assets/cafe.png" alt="Jamille Avelino Cafe Lifestyle">
+            <img src="assets/cafe.png" alt="Jamille Avelino Cafe Lifestyle" onclick="openLightbox('assets/cafe.png')">
           </div>
           <div class="transform-info">
             <h3>Experiências & Gastronomia</h3>
@@ -151,7 +178,7 @@
         <div class="transform-card">
           <div class="transform-img-box">
             <span class="transform-badge"><i class="fa-solid fa-compass"></i> Turismo & Eventos</span>
-            <img src="assets/outdoor.png" alt="Jamille Avelino Outdoor Tourism">
+            <img src="assets/outdoor.png" alt="Jamille Avelino Outdoor Tourism" onclick="openLightbox('assets/outdoor.png')">
           </div>
           <div class="transform-info">
             <h3>Viagens & Coberturas Regionais</h3>
@@ -297,11 +324,11 @@
 
         <!-- Demografia por Região -->
         <div class="demo-card">
-          <h3 class="demo-title"><div class="stat-icon" style="margin:0; font-size:1.2rem;"><i class="fa-solid fa-map-location-dot"></i></div> Principais Regiões</h3>
+          <h3 class="demo-title"><i class="fa-solid fa-map-location-dot"></i> Principais Regiões</h3>
           
           <div class="progress-bar-group">
             <div class="progress-info">
-              <span class="progress-label">Fortaleza & Região Metropolitana (Ceará)</span>
+              <span class="progress-label">Fortaleza & Região Metropolitana (CE)</span>
               <span class="progress-value">62%</span>
             </div>
             <div class="progress-track"><div class="progress-fill" style="width: 62%;"></div></div>
@@ -347,10 +374,10 @@
       </div>
 
       <div class="pillars-tabs">
-        <button class="tab-btn active" onclick="switchPillar('reels')"><i class="fa-solid fa-video"></i> Reels & TikTok</button>
-        <button class="tab-btn" onclick="switchPillar('stories')"><i class="fa-solid fa-circle-notch"></i> Sequência Stories</button>
-        <button class="tab-btn" onclick="switchPillar('vip')"><i class="fa-solid fa-glass-cheers"></i> Presença VIP & Eventos</button>
-        <button class="tab-btn" onclick="switchPillar('ambassador')"><i class="fa-solid fa-crown"></i> Embaixadoria 360°</button>
+        <button class="tab-btn active" onclick="switchPillar('reels', this)"><i class="fa-solid fa-video"></i> Reels & TikTok</button>
+        <button class="tab-btn" onclick="switchPillar('stories', this)"><i class="fa-solid fa-circle-notch"></i> Sequência Stories</button>
+        <button class="tab-btn" onclick="switchPillar('vip', this)"><i class="fa-solid fa-glass-cheers"></i> Presença VIP</button>
+        <button class="tab-btn" onclick="switchPillar('ambassador', this)"><i class="fa-solid fa-crown"></i> Embaixadoria</button>
       </div>
 
       <div id="pillar-content-display">
@@ -366,7 +393,7 @@
               <li><i class="fa-solid fa-check"></i> Legendas dinâmicas e Call To Action direta</li>
               <li><i class="fa-solid fa-check"></i> Direitos de impulsionamento e tráfego pago inclusos (opcional)</li>
             </ul>
-            <button class="btn btn-primary" onclick="openBriefingModal('Reels')">Solicitar Orçamento de Reels</button>
+            <button class="btn btn-primary" style="width: 100%;" onclick="openBriefingModal('Reels')">Solicitar Orçamento de Reels</button>
           </div>
         </div>
       </div>
@@ -395,7 +422,7 @@
             <li><i class="fa-solid fa-check"></i> Link direto com Cupom no Stories</li>
             <li><i class="fa-solid fa-check"></i> Relatório de Métricas pós-campanha</li>
           </ul>
-          <button class="btn btn-secondary" onclick="openBriefingModal('Combo Start')">Selecionar Combo</button>
+          <button class="btn btn-secondary" style="width: 100%;" onclick="openBriefingModal('Combo Start')">Selecionar Combo</button>
         </div>
 
         <!-- Package 2 Featured -->
@@ -410,7 +437,7 @@
             <li><i class="fa-solid fa-check"></i> Destaque no Perfil por 30 dias</li>
             <li><i class="fa-solid fa-check"></i> Direito de Tráfego Pago por 15 dias</li>
           </ul>
-          <button class="btn btn-primary" onclick="openBriefingModal('Combo Master Launch')">Garantir Combo Master</button>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openBriefingModal('Combo Master Launch')">Garantir Combo Master</button>
         </div>
 
         <!-- Package 3 -->
@@ -423,7 +450,7 @@
             <li><i class="fa-solid fa-check"></i> Uso de Imagem para anúncios da marca</li>
             <li><i class="fa-solid fa-check"></i> Cobertura de todos os eventos da marca</li>
           </ul>
-          <button class="btn btn-secondary" onclick="openBriefingModal('Embaixadoria 360')">Solicitar Contrato</button>
+          <button class="btn btn-secondary" style="width: 100%;" onclick="openBriefingModal('Embaixadoria 360')">Solicitar Contrato</button>
         </div>
       </div>
 
@@ -450,7 +477,7 @@
 
           <div class="calc-option" onclick="toggleCalcOption(this, 1500)" data-item="Presença VIP Evento">
             <div class="calc-option-info">
-              <h4>Presença VIP em Evento (2 horas)</h4>
+              <h4>Presença VIP em Evento (2h)</h4>
               <p>Interação presencial + Stories no local</p>
             </div>
             <i class="fa-regular fa-circle"></i>
@@ -458,8 +485,8 @@
 
           <div class="calc-option" onclick="toggleCalcOption(this, 800)" data-item="Direito de Tráfego Pago">
             <div class="calc-option-info">
-              <h4>Direitos de Uso em Anúncios (15 dias)</h4>
-              <p>Autorização de imagem para ADS de marca</p>
+              <h4>Uso em Anúncios (15 dias)</h4>
+              <p>Autorização de imagem para ADS</p>
             </div>
             <i class="fa-regular fa-circle"></i>
           </div>
@@ -470,7 +497,7 @@
             <div class="calc-total-label">Estimativa Personalizada:</div>
             <div class="calc-total-amount" id="calc-total-price">R$ 1.800</div>
           </div>
-          <button class="btn btn-primary" onclick="sendCalculatedBriefing()">
+          <button class="btn btn-primary" style="width: 100%; max-width: 380px;" onclick="sendCalculatedBriefing()">
             <i class="fa-brands fa-whatsapp"></i> Enviar Proposta via WhatsApp
           </button>
         </div>
@@ -479,14 +506,14 @@
   </section>
 
   <!-- High Conversion Modal Form -->
-  <div class="modal-overlay" id="briefingModal">
+  <div class="modal-overlay" id="briefingModal" onclick="handleOverlayClick(event)">
     <div class="modal-container">
-      <button class="modal-close" onclick="closeBriefingModal()"><i class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close" onclick="closeBriefingModal()" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
       
-      <div style="margin-bottom: 24px;">
+      <div style="margin-bottom: 20px;">
         <span class="section-tag">Proposta Comercial Direct</span>
-        <h2 style="font-size: 1.8rem; color: var(--text-white); margin-top: 4px;">Solicitar Orçamento com Jamille</h2>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Preencha para receber o orçamento oficial no seu WhatsApp instantaneamente.</p>
+        <h2 style="font-size: 1.5rem; color: var(--text-white); margin-top: 4px;">Solicitar Orçamento com Jamille</h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Preencha para receber o orçamento oficial no seu WhatsApp instantaneamente.</p>
       </div>
 
       <form id="briefingForm" onsubmit="handleBriefingSubmit(event)">
@@ -522,8 +549,8 @@
           <textarea id="briefingMessage" class="form-control" rows="3" placeholder="Conte um pouco sobre o produto, objetivo e data da ação..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.05rem; padding: 16px;">
-          <i class="fa-brands fa-whatsapp"></i> Enviar Briefing Imediato no WhatsApp
+        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem; padding: 14px;">
+          <i class="fa-brands fa-whatsapp"></i> Enviar Briefing no WhatsApp Direct
         </button>
       </form>
     </div>
@@ -533,6 +560,12 @@
   <div class="lightbox-overlay" id="lightboxModal" onclick="closeLightbox()">
     <img src="" alt="Zoom Photo" class="lightbox-img" id="lightboxImg">
   </div>
+
+  <!-- Floating Sticky WhatsApp CTA for Mobile -->
+  <a href="https://wa.me/message/CF2NA52ETUHIK1" target="_blank" class="sticky-whatsapp-mobile" title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Orçamento Rápido</span>
+  </a>
 
   <!-- Footer Section -->
   <footer class="footer">

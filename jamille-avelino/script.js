@@ -1,14 +1,13 @@
 /*
   Branding Book & Media Kit - Jamille Avelino (@vemcom_ajam)
-  Interactive Logic, Counter Animations, Calculator & WhatsApp Integration
+  Interactive Logic, Mobile Drawer, Counter Animations, Calculator & WhatsApp Integration
 */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
-  initPillarsData();
 });
 
-// 1. Navbar Scroll Class Toggle
+// 1. Navbar Scroll Class Toggle & Mobile Menu
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -18,6 +17,28 @@ function initNavbarScroll() {
       navbar.classList.remove('scrolled');
     }
   });
+}
+
+function toggleMobileNav() {
+  const drawer = document.getElementById('mobileMenuDrawer');
+  const toggleBtn = document.getElementById('mobileToggle');
+  const isExpanded = drawer.classList.contains('active');
+
+  if (isExpanded) {
+    closeMobileNav();
+  } else {
+    drawer.classList.add('active');
+    toggleBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileNav() {
+  const drawer = document.getElementById('mobileMenuDrawer');
+  const toggleBtn = document.getElementById('mobileToggle');
+  drawer.classList.remove('active');
+  toggleBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  document.body.style.overflow = 'auto';
 }
 
 // 2. Pillars Tab Switcher Data & Logic
@@ -72,7 +93,7 @@ const pillarsData = {
   }
 };
 
-function switchPillar(key) {
+function switchPillar(key, element) {
   const display = document.getElementById('pillar-content-display');
   const data = pillarsData[key];
   if (!data) return;
@@ -80,7 +101,9 @@ function switchPillar(key) {
   // Update active button UI
   const buttons = document.querySelectorAll('.pillars-tabs .tab-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  if (element) {
+    element.classList.add('active');
+  }
 
   // Render HTML
   display.innerHTML = `
@@ -92,14 +115,10 @@ function switchPillar(key) {
         <ul class="pillar-bullets">
           ${data.bullets.map(b => `<li><i class="fa-solid fa-check"></i> ${b}</li>`).join('')}
         </ul>
-        <button class="btn btn-primary" onclick="openBriefingModal('${data.formatName}')">${data.btnText}</button>
+        <button class="btn btn-primary" style="width: 100%;" onclick="openBriefingModal('${data.formatName}')">${data.btnText}</button>
       </div>
     </div>
   `;
-}
-
-function initPillarsData() {
-  // Preload first tab
 }
 
 // 3. Calculator State & Logic
@@ -127,14 +146,11 @@ function toggleCalcOption(element, price) {
 }
 
 // 4. Modal Briefing Form Logic
-const WHATSAPP_URL = "https://wa.me/message/CF2NA52ETUHIK1";
-
 function openBriefingModal(packageName = '') {
   const modal = document.getElementById('briefingModal');
   const select = document.getElementById('packageSelect');
   
   if (packageName && select) {
-    // If matching option exists, select it
     for (let i = 0; i < select.options.length; i++) {
       if (select.options[i].value.toLowerCase().includes(packageName.toLowerCase())) {
         select.selectedIndex = i;
@@ -151,6 +167,12 @@ function closeBriefingModal() {
   const modal = document.getElementById('briefingModal');
   modal.classList.remove('active');
   document.body.style.overflow = 'auto';
+}
+
+function handleOverlayClick(event) {
+  if (event.target.id === 'briefingModal') {
+    closeBriefingModal();
+  }
 }
 
 function handleBriefingSubmit(event) {
