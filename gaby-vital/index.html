@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Gaby Vital ✨ | Branding Book & Media Kit Oficial @gabylimav_</title>
+  <meta name="description" content="Media Kit & Branding Book Oficial da influenciadora digital e produtora de conteúdo Gaby Vital (@gabylimav_). Conecte sua marca a audiências engajadas através de storytelling autêntico e criativo.">
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand">
+        <img src="assets/hero.png" alt="Gaby Vital" class="nav-brand-logo">
+        <div>
+          <span class="nav-brand-text">GABY VITAL</span>
+          <span class="nav-brand-handle">@gabylimav_ ✨</span>
+        </div>
+      </a>
+      
+      <!-- Desktop Links -->
+      <ul class="nav-links">
+        <li><a href="#sobre" class="nav-link">Sobre & Manifesto</a></li>
+        <li><a href="#estetica" class="nav-link">Branding Book</a></li>
+        <li><a href="#metricas" class="nav-link">Métricas</a></li>
+        <li><a href="#pilares" class="nav-link">Pilares de Conteúdo</a></li>
+        <li><a href="#pacotes" class="nav-link">Pacotes & Simulador</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary nav-pdf-btn" onclick="generateMediaKitPDF()">
+          <i class="fa-solid fa-file-pdf"></i> Baixar Media Kit
+        </button>
+        <button class="btn btn-primary nav-cta-btn" onclick="openBriefingModal()">
+          <i class="fa-brands fa-whatsapp"></i> Fechar Parceria
+        </button>
+        
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileNav()" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu-drawer" id="mobileMenuDrawer">
+      <div class="mobile-menu-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#sobre" onclick="closeMobileNav()"><i class="fa-solid fa-user-astronaut"></i> Sobre & Manifesto</a></li>
+          <li><a href="#estetica" onclick="closeMobileNav()"><i class="fa-solid fa-wand-magic-sparkles"></i> Branding Book</a></li>
+          <li><a href="#metricas" onclick="closeMobileNav()"><i class="fa-solid fa-chart-pie"></i> Métricas & Audiência</a></li>
+          <li><a href="#pilares" onclick="closeMobileNav()"><i class="fa-solid fa-clapperboard"></i> Pilares de Conteúdo</a></li>
+          <li><a href="#pacotes" onclick="closeMobileNav()"><i class="fa-solid fa-calculator"></i> Pacotes & Simulador</a></li>
+        </ul>
+        <div class="mobile-menu-buttons">
+          <button class="btn btn-secondary" style="width: 100%;" onclick="closeMobileNav(); generateMediaKitPDF();">
+            <i class="fa-solid fa-file-pdf"></i> Baixar Media Kit (PDF)
+          </button>
+          <button class="btn btn-primary" style="width: 100%;" onclick="closeMobileNav(); openBriefingModal();">
+            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-sparkles"></i> Produtora de Conteúdo & Digital Influencer
+        </div>
+        <h1 class="hero-title">
+          Conexão Autêntica que <span class="text-gradient">Transforma Marcas</span> em Desejos.
+        </h1>
+        <p class="hero-description">
+          Bem-vindo ao <strong>Branding Book Oficial de Gaby Vital (@gabylimav_) ✨</strong>. Especialista em comunicação leve, viagens, eventos regionais e lifestyle, criando campanhas de alta conversão para marcas modernas.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="openBriefingModal('Hero')">
+            <i class="fa-solid fa-paper-plane"></i> Solicitar Orçamento de Publi
+          </button>
+          <a href="https://www.instagram.com/gabylimav_/" target="_blank" class="btn btn-secondary">
+            <i class="fa-brands fa-instagram"></i> Perfil no Instagram
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">360K+</div>
+            <div class="hero-stat-label">Alcance Total</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">9.8%</div>
+            <div class="hero-stat-label">Taxa Engajamento</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">6.2M+</div>
+            <div class="hero-stat-label">Impressões / Mês</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media-wrapper">
+        <div class="hero-main-card">
+          <img src="assets/hero.png" alt="Gaby Vital Editorial Hero" class="hero-main-img">
+        </div>
+
+        <!-- Floating Glassmorphic Badges -->
+        <div class="floating-badge floating-badge-1">
+          <div class="floating-icon"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <div class="floating-val">Embaixadora VIP</div>
+            <div class="floating-lbl">Eventos & Feiras Regionais</div>
+          </div>
+        </div>
+
+        <div class="floating-badge floating-badge-2">
+          <div class="floating-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div>
+            <div class="floating-val">+95 Marcas</div>
+            <div class="floating-lbl">Parcerias de Sucesso</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Photos Transformation / Visual Branding Section -->
+  <section class="transformation-section" id="estetica">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Visual Identity & Editorial Concept</span>
+        <h2 class="section-title">O Universo Visual <span class="text-gradient">Gaby Vital ✨</span></h2>
+        <p class="section-subtitle">
+          Presença marcante e versátil: da simpatia contagiante do dia a dia a produções editoriais completas.
+        </p>
+      </div>
+
+      <div class="transform-grid">
+        <!-- Card 1: Gala / Gala Awards -->
+        <div class="transform-card">
+          <div class="transform-img-box">
+            <span class="transform-badge"><i class="fa-solid fa-crown"></i> Gala & Prêmios</span>
+            <img src="assets/gala.png" alt="Gaby Vital Gala Event" onclick="openLightbox('assets/gala.png')">
+          </div>
+          <div class="transform-info">
+            <h3>Presença VIP & Premiações</h3>
+            <p>Sofisticação e representatividade em eventos de gala, lançamentos de marcas e premiações digitais.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Western & Events -->
+        <div class="transform-card">
+          <div class="transform-img-box">
+            <span class="transform-badge"><i class="fa-solid fa-hat-cowboy"></i> Feiras & Eventos</span>
+            <img src="assets/western.png" alt="Gaby Vital Western Ambassador" onclick="openLightbox('assets/western.png')">
+          </div>
+          <div class="transform-info">
+            <h3>Embaixadora de Festivais</h3>
+            <p>Cobertura de feiras agro, grandes eventos regionais e ativações de marca no local.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Lifestyle & Travel -->
+        <div class="transform-card">
+          <div class="transform-img-box">
+            <span class="transform-badge"><i class="fa-solid fa-plane"></i> Viagens & Lifestyle</span>
+            <img src="assets/lifestyle.png" alt="Gaby Vital Lifestyle" onclick="openLightbox('assets/lifestyle.png')">
+          </div>
+          <div class="transform-info">
+            <h3>Experiências & Lifestyle</h3>
+            <p>Dicas de turismo, gastronomia e provadores reais com alto índice de recomendação direta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Manifesto Section -->
+  <section class="about-section" id="sobre">
+    <div class="container about-grid">
+      <div class="about-image-stack">
+        <img src="assets/hero.png" alt="Gaby Vital Manifesto" class="about-img-main">
+        <img src="assets/original_portrait.jpg" alt="Gaby Vital Autêntica" class="about-img-sub">
+      </div>
+
+      <div class="about-content">
+        <span class="section-tag">Quem é Gaby Vital</span>
+        <h2>Carisma Autêntico + Roteiros que <span class="text-gradient">Geram Vendas Reais</span>.</h2>
+        
+        <p class="about-lead">
+          "Acredito no poder de histórias reais: quando recomendamos o que amamos, a conversão é consequência."
+        </p>
+
+        <p class="about-text">
+          À frente do perfil <strong>@gabylimav_</strong>, Gaby Vital destaca-se pela comunicação calorosa, espontânea e próxima do seu público. Especializada na criação de vídeos curtos dinâmicos (Reels e TikTok), ela entrega valor real para marcas parceiras unindo engajamento e estética editorial.
+        </p>
+
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon"><i class="fa-solid fa-chart-simple"></i></div>
+            <div>
+              <div class="value-title">Conversão Direta</div>
+              <div class="value-desc">Links com altas taxas de cliques e conversões rastreadas.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div>
+              <div class="value-title">Roteiro Criativo</div>
+              <div class="value-desc">Conteúdo orgânico que encaixa a marca com leveza.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+            <div>
+              <div class="value-title">Conexão de Confiança</div>
+              <div class="value-desc">Relacionamento próximo e engajado com a comunidade.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <div class="value-title">Pontualidade Absoluta</div>
+              <div class="value-desc">Entrega no prazo combinado e aprovação ágil de roteiros.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics & Demographics -->
+  <section class="metrics-section" id="metricas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Audience & Performance Metrics</span>
+        <h2 class="section-title">Dados Reais de <span class="text-gradient">Alcance e Engajamento</span></h2>
+        <p class="section-subtitle">
+          Estatísticas consolidadas para garantir a máxima rentabilidade da sua campanha.
+        </p>
+      </div>
+
+      <div class="stats-main-grid">
+        <div class="stat-big-card">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-val">360K+</div>
+          <div class="stat-lbl">Seguidores Totais</div>
+          <div class="stat-subtext">Instagram & TikTok</div>
+        </div>
+
+        <div class="stat-big-card">
+          <div class="stat-icon"><i class="fa-solid fa-eye"></i></div>
+          <div class="stat-val">6.2M+</div>
+          <div class="stat-lbl">Impressões / Mês</div>
+          <div class="stat-subtext">Visualizações acumuladas</div>
+        </div>
+
+        <div class="stat-big-card">
+          <div class="stat-icon"><i class="fa-solid fa-fire"></i></div>
+          <div class="stat-val">9.8%</div>
+          <div class="stat-lbl">Engajamento Médio</div>
+          <div class="stat-subtext">Super engajado</div>
+        </div>
+
+        <div class="stat-big-card">
+          <div class="stat-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+          <div class="stat-val">81%</div>
+          <div class="stat-lbl">Decisão de Compra</div>
+          <div class="stat-subtext">Audiência qualificada</div>
+        </div>
+      </div>
+
+      <div class="demographics-grid">
+        <!-- Demografia por Gênero e Idade -->
+        <div class="demo-card">
+          <h3 class="demo-title"><i class="fa-solid fa-user-gear"></i> Faixa Etária & Gênero</h3>
+          
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">Feminino (Decisoras de Compra)</span>
+              <span class="progress-value">81%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 81%;"></div></div>
+          </div>
+
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">Masculino</span>
+              <span class="progress-value">19%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 19%;"></div></div>
+          </div>
+
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">25 - 34 Anos (Público Ativo)</span>
+              <span class="progress-value">58%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 58%;"></div></div>
+          </div>
+
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">35 - 44 Anos</span>
+              <span class="progress-value">25%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Demografia por Região -->
+        <div class="demo-card">
+          <h3 class="demo-title"><i class="fa-solid fa-map-location-dot"></i> Principais Regiões</h3>
+          
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">Fortaleza & Região Metropolitana (CE)</span>
+              <span class="progress-value">65%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 65%;"></div></div>
+          </div>
+
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">São Paulo & Sudeste</span>
+              <span class="progress-value">16%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 16%;"></div></div>
+          </div>
+
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">Outros Estados do Nordeste</span>
+              <span class="progress-value">14%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 14%;"></div></div>
+          </div>
+
+          <div class="progress-bar-group">
+            <div class="progress-info">
+              <span class="progress-label">Demais Regiões</span>
+              <span class="progress-value">5%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 5%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Pillars Section -->
+  <section class="pillars-section" id="pilares">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Deliverables & Formats</span>
+        <h2 class="section-title">Formatos de <span class="text-gradient">Parcerias Publi</span></h2>
+        <p class="section-subtitle">
+          Entregáveis personalizados para fortalecer a imagem da sua marca e acelerar vendas.
+        </p>
+      </div>
+
+      <div class="pillars-tabs">
+        <button class="tab-btn active" onclick="switchPillar('reels', this)"><i class="fa-solid fa-video"></i> Reels & TikTok</button>
+        <button class="tab-btn" onclick="switchPillar('stories', this)"><i class="fa-solid fa-circle-notch"></i> Sequência Stories</button>
+        <button class="tab-btn" onclick="switchPillar('vip', this)"><i class="fa-solid fa-glass-cheers"></i> Presença VIP</button>
+        <button class="tab-btn" onclick="switchPillar('ambassador', this)"><i class="fa-solid fa-crown"></i> Embaixadoria</button>
+      </div>
+
+      <div id="pillar-content-display">
+        <div class="pillar-content-card">
+          <img src="assets/lifestyle.png" alt="Reels & TikTok Criativo" class="pillar-img">
+          <div class="pillar-info">
+            <h3>📹 Reels & TikTok Criativo</h3>
+            <p class="pillar-desc">
+              Vídeo dinâmico de 30s a 60s com roteiro autoral, edição moderna, legendas dinâmicas e Call to Action estratégica.
+            </p>
+            <ul class="pillar-bullets">
+              <li><i class="fa-solid fa-check"></i> Roteiro alinhado com os objetivos da marca</li>
+              <li><i class="fa-solid fa-check"></i> Edição em alta definição e color grading</li>
+              <li><i class="fa-solid fa-check"></i> Autorização para impulsionamento (opcional)</li>
+            </ul>
+            <button class="btn btn-primary" style="width: 100%;" onclick="openBriefingModal('Reels')">Solicitar Orçamento de Reels</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commercial Packages & Investment Simulator -->
+  <section class="pricing-section" id="pacotes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Commercial Packages</span>
+        <h2 class="section-title">Pacotes Promocionais <span class="text-gradient">& Simulador de Investimento</span></h2>
+        <p class="section-subtitle">
+          Escolha um combo pronto ou monte uma proposta personalizada.
+        </p>
+      </div>
+
+      <div class="packages-grid">
+        <!-- Package 1 -->
+        <div class="package-card">
+          <h3 class="package-name">Combo Start</h3>
+          <div class="package-price-tag">Sob Consulta <span>/ ação pontual</span></div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> 1 Reels / TikTok Exclusivo</li>
+            <li><i class="fa-solid fa-check"></i> 1 Sequência de Stories (3 telas)</li>
+            <li><i class="fa-solid fa-check"></i> Link direto e cupom nos Stories</li>
+            <li><i class="fa-solid fa-check"></i> Relatório de Desempenho</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%;" onclick="openBriefingModal('Combo Start')">Selecionar Combo</button>
+        </div>
+
+        <!-- Package 2 Featured -->
+        <div class="package-card featured">
+          <div class="package-ribbon">⭐ Mais Vendido</div>
+          <h3 class="package-name">Combo Master Launch</h3>
+          <div class="package-price-tag">Alta Conversão <span>/ lançamento</span></div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> 2 Reels Criativos em Alta Definição</li>
+            <li><i class="fa-solid fa-check"></i> 2 Sequências de Stories completas</li>
+            <li><i class="fa-solid fa-check"></i> Presença VIP em evento de lançamento</li>
+            <li><i class="fa-solid fa-check"></i> Destaque no Perfil por 30 dias</li>
+            <li><i class="fa-solid fa-check"></i> Direito de Tráfego Pago por 15 dias</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openBriefingModal('Combo Master Launch')">Garantir Combo Master</button>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card">
+          <h3 class="package-name">Embaixadora 360°</h3>
+          <div class="package-price-tag">Exclusividade <span>/ trimestral</span></div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> Conteúdo mensal fixo (Feed & Stories)</li>
+            <li><i class="fa-solid fa-check"></i> Exclusividade de segmento regional</li>
+            <li><i class="fa-solid fa-check"></i> Uso de Imagem para anúncios digitais</li>
+            <li><i class="fa-solid fa-check"></i> Cobertura VIP de todos os eventos da marca</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%;" onclick="openBriefingModal('Embaixadoria 360')">Solicitar Contrato</button>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator -->
+      <div class="calculator-box">
+        <h3 class="calc-title"><i class="fa-solid fa-calculator text-gradient"></i> Simulador Rápido de Entregáveis</h3>
+        
+        <div class="calc-options-grid">
+          <div class="calc-option selected" onclick="toggleCalcOption(this, 1100)" data-item="Reels Exclusivo">
+            <div class="calc-option-info">
+              <h4>1 Reels / TikTok Criativo (Feed)</h4>
+              <p>Roteiro, gravação e edição completa</p>
+            </div>
+            <i class="fa-solid fa-circle-check text-gradient"></i>
+          </div>
+
+          <div class="calc-option selected" onclick="toggleCalcOption(this, 550)" data-item="Sequencia 3 Stories">
+            <div class="calc-option-info">
+              <h4>1 Sequência de Stories (3 telas)</h4>
+              <p>Com link de compra e cupom exclusivo</p>
+            </div>
+            <i class="fa-solid fa-circle-check text-gradient"></i>
+          </div>
+
+          <div class="calc-option" onclick="toggleCalcOption(this, 1400)" data-item="Presença VIP Evento">
+            <div class="calc-option-info">
+              <h4>Presença VIP em Evento (2h)</h4>
+              <p>Interação presencial + Stories no local</p>
+            </div>
+            <i class="fa-regular fa-circle"></i>
+          </div>
+
+          <div class="calc-option" onclick="toggleCalcOption(this, 750)" data-item="Direito de Tráfego Pago">
+            <div class="calc-option-info">
+              <h4>Uso em Anúncios (15 dias)</h4>
+              <p>Autorização de imagem para ADS de marca</p>
+            </div>
+            <i class="fa-regular fa-circle"></i>
+          </div>
+        </div>
+
+        <div class="calc-result-row">
+          <div>
+            <div class="calc-total-label">Estimativa Personalizada:</div>
+            <div class="calc-total-amount" id="calc-total-price">R$ 1.650</div>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; max-width: 380px;" onclick="sendCalculatedBriefing()">
+            <i class="fa-brands fa-whatsapp"></i> Enviar Proposta via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- High Conversion Modal Form -->
+  <div class="modal-overlay" id="briefingModal" onclick="handleOverlayClick(event)">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeBriefingModal()" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div style="margin-bottom: 20px;">
+        <span class="section-tag">Proposta Comercial Direct</span>
+        <h2 style="font-size: 1.5rem; color: var(--text-white); margin-top: 4px;">Solicitar Orçamento com Gaby Vital</h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Preencha para receber o orçamento oficial no seu WhatsApp instantaneamente.</p>
+      </div>
+
+      <form id="briefingForm" onsubmit="handleBriefingSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Nome da Marca / Empresa *</label>
+          <input type="text" id="brandName" class="form-control" placeholder="Ex: Loja Moda Chic / Agência Digital" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Seu Nome / Cargo *</label>
+            <input type="text" id="contactName" class="form-control" placeholder="Ex: Mariana (Gerente Mídia)" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Seu WhatsApp / Telefone *</label>
+            <input type="tel" id="contactPhone" class="form-control" placeholder="(85) 99999-9999" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Formato de Parceria Desejado</label>
+          <select id="packageSelect" class="form-control">
+            <option value="Combo Master Launch">Combo Master Launch (Mais Recomendado)</option>
+            <option value="Combo Start">Combo Start (Pontual)</option>
+            <option value="Embaixadoria 360">Embaixadoria Trimestral</option>
+            <option value="Reels Avulso">Reels Criativo Avulso</option>
+            <option value="Presença VIP">Presença VIP em Evento</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Detalhes da Campanha / Mensagem</label>
+          <textarea id="briefingMessage" class="form-control" rows="3" placeholder="Conte um pouco sobre o produto, objetivo e data da ação..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem; padding: 14px;">
+          <i class="fa-brands fa-whatsapp"></i> Enviar Briefing no WhatsApp Direct
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightboxModal" onclick="closeLightbox()">
+    <img src="" alt="Zoom Photo" class="lightbox-img" id="lightboxImg">
+  </div>
+
+  <!-- Floating Sticky WhatsApp CTA for Mobile -->
+  <a href="https://wa.me/5585999999999?text=Ol%C3%A1%20Gaby!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20parceria%20publi." target="_blank" class="sticky-whatsapp-mobile" title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Orçamento Rápido</span>
+  </a>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="nav-brand">
+          <img src="assets/hero.png" alt="Gaby Vital" class="nav-brand-logo">
+          <div>
+            <span class="nav-brand-text">GABY VITAL</span>
+            <span class="nav-brand-handle">@gabylimav_ ✨</span>
+          </div>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/gabylimav_/" target="_blank" class="social-icon" title="Instagram @gabylimav_"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="mailto:contato@gabyvital.com.br" class="social-icon" title="E-mail"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-copy">
+        <p>© 2026 Gaby Vital ✨ Todos os direitos reservados. Media Kit & Branding Book de Alta Conversão.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
