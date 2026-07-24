@@ -1,0 +1,204 @@
+/*
+  Branding Book & Media Kit - Jamille Avelino (@vemcom_ajam)
+  Interactive Logic, Counter Animations, Calculator & WhatsApp Integration
+*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbarScroll();
+  initPillarsData();
+});
+
+// 1. Navbar Scroll Class Toggle
+function initNavbarScroll() {
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+// 2. Pillars Tab Switcher Data & Logic
+const pillarsData = {
+  reels: {
+    title: '📹 Reels & TikTok Cinematográfico',
+    desc: 'Vídeo dinâmico de 30s a 60s com edição ágil, efeitos sonoros imersivos e roteiro focado em engajamento e retenção máxima da audiência.',
+    img: 'assets/cafe.png',
+    bullets: [
+      'Roteiro autoral aprovado previamente com a agência / marca',
+      'Edição dinâmica com legendas e estética de cinema',
+      'Direitos de tráfego pago e impulsionamento (opcional)'
+    ],
+    btnText: 'Solicitar Orçamento de Reels',
+    formatName: 'Reels Cinematográfico'
+  },
+  stories: {
+    title: '📸 Sequência de Stories Digest',
+    desc: 'Combo de 3 a 6 telas sequenciais com storytelling fluido, teste/uso do produto no dia a dia, sticker de link direto e cupom exclusivo.',
+    img: 'assets/hero.png',
+    bullets: [
+      'Provador real e demonstração prática do uso',
+      'Link direto rastreável para mensurar tráfego e conversão',
+      'Interação com enquetes e caixas de perguntas'
+    ],
+    btnText: 'Solicitar Sequência de Stories',
+    formatName: 'Sequência de Stories'
+  },
+  vip: {
+    title: '🥂 Presença VIP & Cobertura de Eventos',
+    desc: 'Jamille presente no lançamento de coleções, inaugurações de lojas ou feiras regionais, atraindo público e registrando bastidores.',
+    img: 'assets/gala.png',
+    bullets: [
+      'Entrevistas e interação presencial com convidados',
+      'Cobertura ao vivo nos Stories durante o evento',
+      'Sessão de fotos e gravação de reels com a equipe da marca'
+    ],
+    btnText: 'Contratar Presença VIP',
+    formatName: 'Presença VIP em Evento'
+  },
+  ambassador: {
+    title: '👑 Embaixadoria de Marca 360°',
+    desc: 'Parceria continuada de 3 a 12 meses. A marca ganha um rosto autêntico, exclusivo no segmento e com presença constante no canal.',
+    img: 'assets/outdoor.png',
+    bullets: [
+      'Exclusividade de segmento no Ceará e Nordeste',
+      'Direito de uso de imagem para mídia online e offline',
+      'Publicações mensais estratégicas e alinhamento direto de KPIs'
+    ],
+    btnText: 'Solicitar Proposta de Embaixadoria',
+    formatName: 'Embaixadoria 360°'
+  }
+};
+
+function switchPillar(key) {
+  const display = document.getElementById('pillar-content-display');
+  const data = pillarsData[key];
+  if (!data) return;
+
+  // Update active button UI
+  const buttons = document.querySelectorAll('.pillars-tabs .tab-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  // Render HTML
+  display.innerHTML = `
+    <div class="pillar-content-card">
+      <img src="${data.img}" alt="${data.title}" class="pillar-img">
+      <div class="pillar-info">
+        <h3>${data.title}</h3>
+        <p class="pillar-desc">${data.desc}</p>
+        <ul class="pillar-bullets">
+          ${data.bullets.map(b => `<li><i class="fa-solid fa-check"></i> ${b}</li>`).join('')}
+        </ul>
+        <button class="btn btn-primary" onclick="openBriefingModal('${data.formatName}')">${data.btnText}</button>
+      </div>
+    </div>
+  `;
+}
+
+function initPillarsData() {
+  // Preload first tab
+}
+
+// 3. Calculator State & Logic
+let currentTotal = 1800; // Initial default sum of selected options
+const selectedItems = new Set(['Reels Exclusivo', 'Sequencia 3 Stories']);
+
+function toggleCalcOption(element, price) {
+  const itemName = element.getAttribute('data-item');
+  const icon = element.querySelector('i');
+
+  if (element.classList.contains('selected')) {
+    element.classList.remove('selected');
+    icon.className = 'fa-regular fa-circle';
+    currentTotal -= price;
+    selectedItems.delete(itemName);
+  } else {
+    element.classList.add('selected');
+    icon.className = 'fa-solid fa-circle-check text-gradient';
+    currentTotal += price;
+    selectedItems.add(itemName);
+  }
+
+  // Format currency
+  document.getElementById('calc-total-price').innerText = `R$ ${currentTotal.toLocaleString('pt-BR')}`;
+}
+
+// 4. Modal Briefing Form Logic
+const WHATSAPP_URL = "https://wa.me/message/CF2NA52ETUHIK1";
+
+function openBriefingModal(packageName = '') {
+  const modal = document.getElementById('briefingModal');
+  const select = document.getElementById('packageSelect');
+  
+  if (packageName && select) {
+    // If matching option exists, select it
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].value.toLowerCase().includes(packageName.toLowerCase())) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBriefingModal() {
+  const modal = document.getElementById('briefingModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+function handleBriefingSubmit(event) {
+  event.preventDefault();
+
+  const brandName = document.getElementById('brandName').value.trim();
+  const contactName = document.getElementById('contactName').value.trim();
+  const contactPhone = document.getElementById('contactPhone').value.trim();
+  const packageSelect = document.getElementById('packageSelect').value;
+  const briefingMessage = document.getElementById('briefingMessage').value.trim();
+
+  const text = `✨ *NOVO BRIEFING DE PARCERIA - MEDIA KIT* ✨%0A%0A` +
+               `🏢 *Empresa / Marca:* ${encodeURIComponent(brandName)}%0A` +
+               `👤 *Responsável:* ${encodeURIComponent(contactName)}%0A` +
+               `📱 *Contato:* ${encodeURIComponent(contactPhone)}%0A` +
+               `🎯 *Formato Desejado:* ${encodeURIComponent(packageSelect)}%0A` +
+               `💬 *Mensagem / Briefing:* ${encodeURIComponent(briefingMessage || 'Gostaria de receber uma proposta comercial oficial.')}%0A%0A` +
+               `_Enviado através da Landing Page Oficial Jamille Avelino 🎬_`;
+
+  window.open(`https://wa.me/message/CF2NA52ETUHIK1?text=${text}`, '_blank');
+  closeBriefingModal();
+}
+
+function sendCalculatedBriefing() {
+  const itemsArray = Array.from(selectedItems).join(', ');
+  const text = `✨ *ORÇAMENTO PERSONALIZADO - SIMULADOR* ✨%0A%0A` +
+               `📦 *Entregáveis Selecionados:* ${encodeURIComponent(itemsArray || 'Combo Customizado')}%0A` +
+               `💰 *Estimativa Total:* R$ ${currentTotal.toLocaleString('pt-BR')}%0A%0A` +
+               `Olá Jamille! Montei essa proposta no seu site e gostaria de verificar disponibilidade de agenda!`;
+
+  window.open(`https://wa.me/message/CF2NA52ETUHIK1?text=${text}`, '_blank');
+}
+
+// 5. Lightbox Zoom
+function openLightbox(imgSrc) {
+  const modal = document.getElementById('lightboxModal');
+  const img = document.getElementById('lightboxImg');
+  img.src = imgSrc;
+  modal.classList.add('active');
+}
+
+function closeLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  modal.classList.remove('active');
+}
+
+// 6. Media Kit PDF Trigger
+function generateMediaKitPDF() {
+  alert("Gerando o arquivo PDF completo do Media Kit de Jamille Avelino para impressão e download...");
+  window.print();
+}
