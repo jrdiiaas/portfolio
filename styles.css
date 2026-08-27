@@ -662,6 +662,75 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Landing Pages & Micro-Products Section (Fábrica de Conversão)
+   ========================================================================== */
+.section-lps {
+  padding: 6rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lps-grid {
+  display: grid;
+  grid-template-cols: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+.lp-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 100%;
+}
+
+.lp-icon {
+  font-size: 2rem;
+  color: var(--apple-blue);
+  margin-bottom: 1.25rem;
+}
+
+.lp-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.lp-description {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.lp-link {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  width: fit-content;
+}
+
+.lp-link i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.lp-link:hover {
+  color: var(--apple-blue-hover);
+}
+
+.lp-link:hover i {
+  transform: translate(3px, -3px);
+}
+
+/* ==========================================================================
    Tech Stack Section
    ========================================================================== */
 .section-tech {
@@ -855,6 +924,9 @@ h1, h2, h3, h4 {
     grid-template-cols: 1fr;
     gap: 3rem;
   }
+  .lps-grid {
+    grid-template-cols: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -889,6 +961,9 @@ h1, h2, h3, h4 {
   }
   .tech-grid {
     grid-template-cols: repeat(3, 1fr);
+  }
+  .lps-grid {
+    grid-template-cols: 1fr;
   }
   .cta-final-title {
     font-size: 2.2rem;
