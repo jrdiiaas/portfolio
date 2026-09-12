@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
@@ -25,6 +25,16 @@
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Theme detection: aplica tema do SO antes do render -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('portfolio-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
 </head>
 
 <body>
@@ -53,6 +63,10 @@
         <span class="pulse-dot"></span>
         Disponível para Projetos
       </div>
+      <!-- Botão de alternância de tema -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+        <i class="fa-solid fa-sun" id="theme-icon"></i>
+      </button>
     </div>
   </header>
 
@@ -88,7 +102,7 @@
     <div class="glass-container">
       <div class="glass-material metrics-strip">
         <div class="metric-item">
-          <div class="metric-number text-gradient-blue">7+</div>
+          <div class="metric-number text-gradient-blue">8+</div>
           <div class="metric-label">Sistemas Ativos</div>
         </div>
         <div class="metric-item">
@@ -134,23 +148,23 @@
 
         <!-- Case 1: Checkout Transparente -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-credit-card" style="font-size: 4rem; color: var(--apple-emerald); opacity: 0.85;"></i>
-          </div>
-          <div class="case-meta">
-            <span class="case-category">Fintech & Vendas</span>
-            <span class="case-status-badge">Produção</span>
-          </div>
-          <h3 class="case-title">Checkout Transparente Independente</h3>
-          <p class="case-description">
-            Sistema de vendas direto integrado à API do Mercado Pago. Desenvolvido para processar pagamentos via Pix, cartões e boletos de forma transparente, atendendo às rígidas normas de conformidade de dados e telemetria da integradora, alcançando a pontuação máxima de homologação.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Node.js 22</span>
-            <span class="case-tag">Express</span>
-            <span class="case-tag">PostgreSQL</span>
-            <span class="case-tag">Mercado Pago SDK</span>
-            <span class="case-tag">Three.js</span>
+          <div>
+            <i class="fa-solid fa-credit-card case-icon-compact" style="color: var(--apple-emerald);"></i>
+            <div class="case-meta">
+              <span class="case-category">Fintech & Vendas</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">Checkout Transparente Independente</h3>
+            <p class="case-description">
+              Sistema de vendas direto integrado à API do Mercado Pago. Processa Pix, cartões e boletos com conformidade de dados e telemetria, alcançando pontuação máxima de homologação.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Node.js 22</span>
+              <span class="case-tag">Express</span>
+              <span class="case-tag">PostgreSQL</span>
+              <span class="case-tag">Mercado Pago SDK</span>
+              <span class="case-tag">Three.js</span>
+            </div>
           </div>
           <a href="https://automacoes.escolasinc.com.br" target="_blank" class="case-action-link">
             <span>Visitar Sistema</span>
@@ -160,23 +174,23 @@
 
         <!-- Case 2: LP 3D & WhatsApp OTP -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-cubes" style="font-size: 4rem; color: var(--apple-blue); opacity: 0.85;"></i>
-          </div>
-          <div class="case-meta">
-            <span class="case-category">Marketing & Captura</span>
-            <span class="case-status-badge">Produção</span>
-          </div>
-          <h3 class="case-title">Landing Page 3D & Validação OTP</h3>
-          <p class="case-description">
-            Plataforma de captação de leads em eventos de alta demanda. Utiliza elementos tridimensionais interativos na interface e validação instantânea do número do WhatsApp via código OTP enviado por API de mensageria, reduzindo em 100% os cadastros de números inexistentes na base.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Express MVC</span>
-            <span class="case-tag">Three.js</span>
-            <span class="case-tag">WAHA API</span>
-            <span class="case-tag">Prisma ORM</span>
-            <span class="case-tag">PostgreSQL 16</span>
+          <div>
+            <i class="fa-solid fa-cubes case-icon-compact" style="color: var(--apple-blue);"></i>
+            <div class="case-meta">
+              <span class="case-category">Marketing & Captura</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">Landing Page 3D & Validação OTP</h3>
+            <p class="case-description">
+              Plataforma de captação de leads em eventos de alta demanda. Validação instantânea do WhatsApp via OTP, eliminando 100% dos cadastros com números inexistentes na base.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Express MVC</span>
+              <span class="case-tag">Three.js</span>
+              <span class="case-tag">WAHA API</span>
+              <span class="case-tag">Prisma ORM</span>
+              <span class="case-tag">PostgreSQL 16</span>
+            </div>
           </div>
           <a href="https://marketing.escolasinc.com.br" target="_blank" class="case-action-link">
             <span>Testar LP 3D</span>
@@ -186,23 +200,23 @@
 
         <!-- Case 3: Social Dashboard & IA -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-chart-line" style="font-size: 4rem; color: #ff2d55; opacity: 0.85;"></i>
-          </div>
-          <div class="case-meta">
-            <span class="case-category">Dados & Inteligência</span>
-            <span class="case-status-badge">Produção</span>
-          </div>
-          <h3 class="case-title">Social Dashboard & Agente IA</h3>
-          <p class="case-description">
-            Centralizadora de dados para redes sociais e tráfego pago integrada às APIs oficiais da Meta. Armazena dados históricos localmente para evitar limites de requisição e oferece um assistente de inteligência artificial alimentado por IA Generativa com contexto real para insights ágeis de marketing.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Node 22</span>
-            <span class="case-tag">SQLite WAL</span>
-            <span class="case-tag">Meta Graph API</span>
-            <span class="case-tag">Chart.js</span>
-            <span class="case-tag">Google Gemini</span>
+          <div>
+            <i class="fa-solid fa-chart-line case-icon-compact" style="color: #ff2d55;"></i>
+            <div class="case-meta">
+              <span class="case-category">Dados & Inteligência</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">Social Dashboard & Agente IA</h3>
+            <p class="case-description">
+              Centralizadora de dados para redes sociais integrada às APIs oficiais da Meta. Histórico local para evitar limites de requisição e assistente de IA com contexto real para insights ágeis.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Node 22</span>
+              <span class="case-tag">SQLite WAL</span>
+              <span class="case-tag">Meta Graph API</span>
+              <span class="case-tag">Chart.js</span>
+              <span class="case-tag">Google Gemini</span>
+            </div>
           </div>
           <a href="https://social.escolasinc.com.br" target="_blank" class="case-action-link">
             <span>Acessar Dashboard</span>
@@ -212,23 +226,23 @@
 
         <!-- Case 4: Currículo Vitae SINC -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-file-invoice" style="font-size: 4rem; color: #a855f7; opacity: 0.85;"></i>
-          </div>
-          <div class="case-meta">
-            <span class="case-category">SaaS & Produtividade</span>
-            <span class="case-status-badge">Produção</span>
-          </div>
-          <h3 class="case-title">Currículo Vitae & Parser XML Lattes</h3>
-          <p class="case-description">
-            Aplicação SaaS para importação, parsing de dados e edição estruturada de currículos acadêmicos. Lê automaticamente os arquivos XML brutos exportados do CNPq, organiza os dados em banco relacional e gera downloads limpos em formatos compatíveis com Word e PDF.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Next.js 16</span>
-            <span class="case-tag">React 19</span>
-            <span class="case-tag">Prisma ORM</span>
-            <span class="case-tag">PostgreSQL 16</span>
-            <span class="case-tag">fast-xml-parser</span>
+          <div>
+            <i class="fa-solid fa-file-invoice case-icon-compact" style="color: #a855f7;"></i>
+            <div class="case-meta">
+              <span class="case-category">SaaS & Produtividade</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">Currículo Vitae & Parser XML Lattes</h3>
+            <p class="case-description">
+              SaaS para importação e parsing de currículos acadêmicos. Lê arquivos XML do CNPq automaticamente, organiza dados em banco relacional e gera downloads em Word e PDF.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Next.js 16</span>
+              <span class="case-tag">React 19</span>
+              <span class="case-tag">Prisma ORM</span>
+              <span class="case-tag">PostgreSQL 16</span>
+              <span class="case-tag">fast-xml-parser</span>
+            </div>
           </div>
           <a href="https://curriculo.escolasinc.com.br" target="_blank" class="case-action-link">
             <span>Abrir SaaS</span>
@@ -238,23 +252,23 @@
 
         <!-- Case 5: Agenda SINC -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-list-check" style="font-size: 4rem; color: #f59e0b; opacity: 0.85;"></i>
-          </div>
-          <div class="case-meta">
-            <span class="case-category">Produtividade & Organização</span>
-            <span class="case-status-badge">Produção</span>
-          </div>
-          <h3 class="case-title">Plataforma Kanban & Importador Trello</h3>
-          <p class="case-description">
-            Sistema próprio para gestão de tarefas e calendários corporativos. Projetado com ações em lote, SPA e suporte a arrastar e soltar (Drag & Drop) nativo, além de um parser que reconstrói quadros inteiros a partir da exportação oficial de arquivos JSON do Trello.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Express 4.21</span>
-            <span class="case-tag">EJS 3.1</span>
-            <span class="case-tag">SQLite 3</span>
-            <span class="case-tag">Drag & Drop API</span>
-            <span class="case-tag">Pexels Integration</span>
+          <div>
+            <i class="fa-solid fa-list-check case-icon-compact" style="color: #f59e0b;"></i>
+            <div class="case-meta">
+              <span class="case-category">Produtividade & Organização</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">Plataforma Kanban & Importador Trello</h3>
+            <p class="case-description">
+              Sistema próprio para gestão de tarefas corporativas com Drag & Drop nativo, ações em lote e um parser que reconstrói quadros inteiros a partir do JSON oficial de exportação do Trello.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Express 4.21</span>
+              <span class="case-tag">EJS 3.1</span>
+              <span class="case-tag">SQLite 3</span>
+              <span class="case-tag">Drag & Drop API</span>
+              <span class="case-tag">Pexels Integration</span>
+            </div>
           </div>
           <a href="https://agenda.escolasinc.com.br" target="_blank" class="case-action-link">
             <span>Testar Kanban</span>
@@ -264,51 +278,77 @@
 
         <!-- Case 6: SINC Remotion Engine -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-video" style="font-size: 4rem; color: #ef4444; opacity: 0.85;"></i>
+          <div>
+            <i class="fa-solid fa-video case-icon-compact" style="color: #ef4444;"></i>
+            <div class="case-meta">
+              <span class="case-category">Media & Automação</span>
+              <span class="case-status-badge internal">API Interna</span>
+            </div>
+            <h3 class="case-title">Remotion Engine (Vídeo como Código)</h3>
+            <p class="case-description">
+              Microserviço que automatiza vídeos promocionais a partir de código React. Sintetização de voz neural, legendas sincronizadas e renderização server-side via FFmpeg e Chromium headless.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">React 18</span>
+              <span class="case-tag">Remotion 4.0</span>
+              <span class="case-tag">Express API</span>
+              <span class="case-tag">FFmpeg Engine</span>
+              <span class="case-tag">Edge-TTS</span>
+            </div>
           </div>
-          <div class="case-meta">
-            <span class="case-category">Media & Automação</span>
-            <span class="case-status-badge internal">API Interna</span>
-          </div>
-          <h3 class="case-title">Remotion Engine (Vídeo como Código)</h3>
-          <p class="case-description">
-            Microserviço independente que automatiza a geração de vídeos promocionais a partir de código React. Integra sintetização de voz neural avançada, geração de legendas dinâmicas perfeitamente sincronizadas ao áudio e renderização server-side automatizada via FFmpeg e Chromium headless.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">React 18</span>
-            <span class="case-tag">Remotion 4.0</span>
-            <span class="case-tag">Express API</span>
-            <span class="case-tag">FFmpeg Engine</span>
-            <span class="case-tag">Edge-TTS</span>
-          </div>
-          <span style="font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-muted); display: block; margin-top: auto;">
+          <span style="font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); display: block; margin-top: auto;">
             Acessado via chamadas de API no servidor local
           </span>
         </article>
 
-        <!-- Case 7: Ecossistema de Ensino -->
+        <!-- Case 7: WordPress SINC — case independente -->
         <article class="glass-card case-card">
-          <div class="case-image-slot">
-            <i class="fa-solid fa-graduation-cap" style="font-size: 4rem; color: var(--apple-blue); opacity: 0.85;"></i>
+          <div>
+            <i class="fa-brands fa-wordpress case-icon-compact" style="color: #3858e9;"></i>
+            <div class="case-meta">
+              <span class="case-category">Web & CMS</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">WordPress SINC — Tema Customizado</h3>
+            <p class="case-description">
+              Tema WordPress proprietário de alta performance compilado sob demanda via Vite, com SSO integrado ao Moodle, otimização de LCP/CLS e pipeline de assets moderno. Zero dependência de plugins construtores.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">WordPress Core</span>
+              <span class="case-tag">Vite 6</span>
+              <span class="case-tag">PHP 8.2</span>
+              <span class="case-tag">SSO Moodle</span>
+              <span class="case-tag">MariaDB 10.11</span>
+            </div>
           </div>
-          <div class="case-meta">
-            <span class="case-category">Educação & CMS</span>
-            <span class="case-status-badge">Produção</span>
-          </div>
-          <h3 class="case-title">Integração Moodle LMS + WordPress</h3>
-          <p class="case-description">
-            Ambiente educacional unificado para cursos online e institucionais. Combina um tema WordPress customizado de alta performance compilado sob demanda via Vite com um tema filho do Moodle Boost estilizado com Tailwind CSS v4, mantendo sincronização de estados de login e modo noturno persistente.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">WordPress Core</span>
-            <span class="case-tag">Moodle LMS</span>
-            <span class="case-tag">Vite & Tailwind v4</span>
-            <span class="case-tag">PHP 8.2</span>
-            <span class="case-tag">MariaDB 10.11</span>
+          <a href="https://escolasinc.com.br" target="_blank" class="case-action-link">
+            <span>Visitar Site</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </article>
+
+        <!-- Case 8: Moodle LMS SINC — case independente -->
+        <article class="glass-card case-card">
+          <div>
+            <i class="fa-solid fa-graduation-cap case-icon-compact" style="color: var(--apple-emerald);"></i>
+            <div class="case-meta">
+              <span class="case-category">Educação & LMS</span>
+              <span class="case-status-badge">Produção</span>
+            </div>
+            <h3 class="case-title">Moodle LMS SINC — Tema Boost & API</h3>
+            <p class="case-description">
+              Ambiente EAD completo com tema filho Boost estilizado em Tailwind CSS v4, dark mode persistente sincronizado com o WordPress, matrículas automatizadas via REST API e área do aluno integrada.
+            </p>
+            <div class="case-tags">
+              <span class="case-tag">Moodle LMS</span>
+              <span class="case-tag">Tailwind v4</span>
+              <span class="case-tag">Boost Child</span>
+              <span class="case-tag">PHP 8.2</span>
+              <span class="case-tag">REST API</span>
+            </div>
           </div>
           <a href="https://ead.escolasinc.com.br" target="_blank" class="case-action-link">
-            <span>Visitar LMS</span>
+            <span>Visitar EAD</span>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </article>
@@ -402,23 +442,6 @@
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </article>
-
-        <!-- Template para Nova LP (Comentado para uso futuro) -->
-        <!--
-        <article class="glass-card lp-card">
-          <div>
-            <div class="lp-icon"><i class="fa-solid fa-globe"></i></div>
-            <h3 class="lp-title">Nome do Seu Produto</h3>
-            <p class="lp-description">
-              Breve descrição de 1 ou 2 linhas sobre o objetivo comercial da Landing Page e o resultado que ela entrega.
-            </p>
-          </div>
-          <a href="./pasta-da-sua-lp/" target="_blank" class="lp-link">
-            <span>Ver Online</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-        </article>
-        -->
 
       </div>
     </div>
@@ -540,12 +563,44 @@
         <a href="mailto:jrdiiaas@icloud.com" title="E-mail"><i class="fa-solid fa-envelope"></i></a>
       </div>
       <p>&copy; 2026 Alexandre Dias. Todos os direitos reservados.</p>
-      <p style="margin-top: 0.5rem; opacity: 0.5;">Hospedado com performance extrema e materiais Liquid Glass.</p>
+      <p style="margin-top: 0.5rem; opacity: 0.5;">Hospedado com performance extrema e materiais Liquid Glass 2.0.</p>
     </div>
   </footer>
 
-  <!-- Apple Liquid Glass Interactive Modifier Script -->
+  <!-- Scripts -->
   <script>
+    // ========================================================================
+    // Theme Toggle (Light / Dark) com persistência localStorage
+    // ========================================================================
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const html = document.documentElement;
+
+    function applyTheme(theme) {
+      html.dataset.theme = theme;
+      localStorage.setItem('portfolio-theme', theme);
+      if (theme === 'dark') {
+        themeIcon.className = 'fa-solid fa-sun';
+        themeToggleBtn.setAttribute('aria-label', 'Mudar para tema claro');
+        themeToggleBtn.setAttribute('title', 'Mudar para tema claro');
+      } else {
+        themeIcon.className = 'fa-solid fa-moon';
+        themeToggleBtn.setAttribute('aria-label', 'Mudar para tema escuro');
+        themeToggleBtn.setAttribute('title', 'Mudar para tema escuro');
+      }
+    }
+
+    // Inicializar ícone de acordo com o tema atual
+    applyTheme(html.dataset.theme || 'dark');
+
+    themeToggleBtn.addEventListener('click', () => {
+      const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+
+    // ========================================================================
+    // Apple Liquid Glass Interactive Modifier (reflexo de luz no mouse)
+    // ========================================================================
     document.addEventListener("DOMContentLoaded", () => {
       const glassElements = document.querySelectorAll(".glass-card, .btn-primary, .btn-glass, .meta-icon-glass, .avatar-liquid-glass");
 
@@ -553,20 +608,19 @@
         // Track mouse movement to rotate and project local light reflections
         element.addEventListener("mousemove", (e) => {
           const rect = element.getBoundingClientRect();
-          const x = e.clientX - rect.left; // x position within the element
-          const y = e.clientY - rect.top;  // y position within the element
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
 
           // Set custom properties for CSS light reflection
           element.style.setProperty("--mouse-x", `${x}px`);
           element.style.setProperty("--mouse-y", `${y}px`);
 
-          // Apply subtle 3D Tilt rotation based on mouse offset from center (interactive effect)
+          // 3D Tilt rotation only for cards
           if (element.classList.contains("glass-card")) {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -5; // Limit rotation to max 5 degrees
-            const rotateY = ((x - centerX) / centerX) * 5;
-
+            const rotateX = ((y - centerY) / centerY) * -4;
+            const rotateY = ((x - centerX) / centerX) * 4;
             element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
             element.style.transition = "transform 0.1s cubic-bezier(0.16, 1, 0.3, 1)";
           }
