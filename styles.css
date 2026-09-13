@@ -318,12 +318,14 @@ h1, h2, h3, h4 {
 .text-gradient-blue {
   background: linear-gradient(135deg, #00c2ff 0%, var(--apple-blue) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-emerald {
   background: linear-gradient(135deg, #34d399 0%, var(--apple-emerald) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -743,6 +745,18 @@ h1, h2, h3, h4 {
 [data-theme="light"] .case-tag {
   background: rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.case-actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: auto;
+}
+
+.case-actions-group .case-action-link {
+  margin-top: 0;
 }
 
 .case-action-link {

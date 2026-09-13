@@ -45,7 +45,7 @@ portfolio/
 1. **Checkout Transparente Independente** — Fintech & Vendas (`automacoes.escolasinc.com.br`)
 2. **Landing Page 3D & Validação OTP** — Marketing & Captura (`marketing.escolasinc.com.br`)
 3. **Social Dashboard & Agente IA** — Dados & Inteligência (`social.escolasinc.com.br`)
-4. **Gestor de Tokens IA (Extensão VS Code & Antigravity)** — Extensão Oficial & Developer Tools ([Marketplace Microsoft](https://marketplace.visualstudio.com/items?itemName=escola-sinc.antigravity-customizations-manager&ssr=false#overview))
+4. **Gestor de Tokens IA (Extensão VS Code & Antigravity)** — Extensão Oficial & Developer Tools ([Marketplace Microsoft](https://marketplace.visualstudio.com/items?itemName=escola-sinc.antigravity-customizations-manager&ssr=false#overview) | [Open VSX Registry](https://open-vsx.org/extension/escola-sinc/antigravity-customizations-manager))
 5. **Currículo Vitae & Parser XML Lattes** — SaaS & Produtividade (`curriculo.escolasinc.com.br`)
 6. **Plataforma Kanban & Importador Trello** — Produtividade & Organização (`agenda.escolasinc.com.br`)
 7. **SINC Remotion Engine** — Vídeo como Código & Automação de Mídia (API Interna)
