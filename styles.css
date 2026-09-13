@@ -68,7 +68,6 @@
 /* ==========================================================================
    LIGHT MODE — paleta clara
    ========================================================================== */
-[data-theme="light"],
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     --bg-space: #f0f4fa;
@@ -701,6 +700,12 @@ h1, h2, h3, h4 {
   background: rgba(0, 113, 227, 0.1);
   color: var(--apple-blue);
   border: 1px solid rgba(0, 113, 227, 0.2);
+}
+
+.case-status-badge.marketplace {
+  background: rgba(0, 120, 212, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .case-title {
