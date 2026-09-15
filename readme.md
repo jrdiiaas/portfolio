@@ -44,9 +44,10 @@ portfolio/
 
 1. **Checkout Transparente Independente** — Fintech & Vendas (`automacoes.escolasinc.com.br`)
 2. **Gestor de Tokens IA (Extensão VS Code & Antigravity)** — Extensão Oficial & Developer Tools ([Marketplace Microsoft](https://marketplace.visualstudio.com/items?itemName=escola-sinc.antigravity-customizations-manager&ssr=false#overview) | [Open VSX Registry](https://open-vsx.org/extension/escola-sinc/antigravity-customizations-manager))
-3. **Currículo Vitae & Parser XML Lattes** — SaaS & Produtividade (`curriculo.escolasinc.com.br`)
-4. **WordPress SINC** — Tema Customizado de Alta Performance (`escolasinc.com.br`)
-5. **Moodle LMS SINC** — Tema Boost Child & REST API (`ead.escolasinc.com.br`)
+3. **Bolso do Jaleco — Logbook Médico** — HealthTech & PWA (`bolsodojaleco.com.br`)
+4. **Currículo Vitae & Parser XML Lattes** — SaaS & Produtividade (`curriculo.escolasinc.com.br`)
+5. **WordPress SINC** — Tema Customizado de Alta Performance (`escolasinc.com.br`)
+6. **Moodle LMS SINC** — Tema Boost Child & REST API (`ead.escolasinc.com.br`)
 
 ---
 
